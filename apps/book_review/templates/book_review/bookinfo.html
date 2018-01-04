@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Book Reviews</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- Custom stylesheet -->
+        {% load staticfiles %}
+        <link rel="icon" href="{% static 'home/img/icons/favicon.ico' %}">
+        <link rel="stylesheet" type="text/css" href="{% static "/book_review/css/style.css" %}">
+    </head>
+    <body>
+        <div class="review_list">
+            <div class="row">
+                <div class="col-sm-12">
+                    <a href="{% url 'book_review:books' %}">Home</a> |
+                    <a href="{% url 'book_review:newbook' %}">Add Book and Review</a> |
+                    <a href="{% url 'book_review:logout' %}">Log Out</a>
+                    <h4>Welcome, {{ request.session.user.first_name }}!</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-7">
+                    <h3>{{ books.title }}</h3>
+                    <h5>Author: {{ books.author.name }}</h5><br>
+                    <h4>Reviews:</h4>
+                </div>
+                {% for review in reviews %}
+                <div class="col-sm-6 book_review">
+                    <p><img src="../../static/book_review/img/{{ review.rating }}.png"></p>
+                    <p><a href="/book_review/users/{{review.user.id}}">{{ review.user.first_name }}</a> writes: {{ review.review }}</p>
+                    <p>Posted on {{ review.created_at }}<p>
+                    {% if request.session.user.id == review.user.id %}
+                    <a href="{% url 'book_review:deletereview' review.id %}">Delete this review</a></p>
+                    {% endif %}
+                </div><br>
+                {% endfor %}
+
+
+                <div class="col-sm-4 review_page">
+                    <form action="{% url 'book_review:newreview' books.id %}" method="post" class="form-horizontal review_add">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="hidden" name="title" value="{{ books.title }}">
+                            <label class="col-sm-4 control-label">Add a review:</label>
+                            <div class="col-sm-8">
+                                <textarea name="review" class="form-control" cols="4"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">Rating:</label>
+                            <div class="col-sm-3">
+                                <select name="rating" class="form-control">
+                                    <option value="select">Select</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-4">
+                                <button type="submit" class="btn btn-default">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <footer>
+            COPYRIGHT 2018 - <a href="/">RETURN TO EVANREYES.CO</a>
+        </footer>
+    </body>
+</html>

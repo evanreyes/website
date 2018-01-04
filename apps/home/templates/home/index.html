@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Evan Reyes</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        {% load static %}
+        <link rel="icon" href="{% static 'home/img/icons/favicon.ico' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'home/css/style.css' %}">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+        crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+    </head>
+    <body>
+        <header>
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-3 topbar">
+                    <h1 class="pull-left">EVAN REYES</h1>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="row">
+                <nav class="col-xs-2">
+                    <ul>
+                        <li><a href="/home">HOME</a></li>
+                        <li><a href="/about_me">ABOUT ME</a></li>
+                        <li><a href="/projects">PROJECTS</a></li>
+                    </ul>
+                    <ul class="externals">
+                        <li><a href="https://www.linkedin.com/in/evan-reyes-619a4235/" target="_blank"><img class="icon" src="{% static 'home/img/icons/linkedin.png' %}" alt=""></a></li>
+                        <li><a href="https://github.com/evanreyes" target="_blank"><img class="icon" src="{% static 'home/img/icons/github.png' %}" alt=""></a></li>
+                        <li><a href="https://twitter.com/evanmreyes" target="_blank"><img class="icon" src="{% static 'home/img/icons/twitter.png' %}" alt=""></a></li>
+                        <li><a href="https://www.dropbox.com/s/ia36r84hr67ihoi/Evan%20Reyes%20resume.pdf?dl=0" target="_blank"><img class="icon" src="{% static 'home/img/icons/doc.png' %}" alt=""></a></li>
+                    </ul>
+                </nav>
+                <section class="col-xs-10">
+                    <div class="bodyphoto col-sm-3 hidden-sm-down">
+                        <img src="{% static 'home/img/withcat.jpg' %}" alt=""><br><br>
+                        <span>Me and Jacques, taking <br> a break from coding</span><br><br>
+                    </div>
+                    <div class="col-md-8">
+                        <p>Hello! My name is Evan Reyes and I am aspiring web developer in Seattle. After spending almost five years as an IT support professional with Apple and Nordstrom, I decided to change careers and pursue web development. Currently, I am working at Axon in IT as I continue to study, build my development skills, network, and hunt for jobs.<br><br>I enrolled in Coding Dojo's online bootcamp, where I learned HTML, CSS, Python, and JavaScript, as well as web frameworks that weave together those languages. My primary focus is Python, in particular the Django framework, though I also love JavaScript, the MEAN stack, and React. I am excited and eager to start my career in coding!  </p>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer>Copyright 2018 - Evan Reyes</footer>
+    </body>
+</html>

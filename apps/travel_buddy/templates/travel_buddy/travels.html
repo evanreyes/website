@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Travels</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- Custom stylesheet -->
+        {% load staticfiles %}
+        <link rel="icon" href="{% static 'home/img/icons/favicon.ico' %}">
+        <link rel="stylesheet" type="text/css" href="{% static "/travel_buddy/css/style.css" %}">
+    </head>
+    <body>
+        <div class="trip_list">
+            <div class="row">
+                <div class="col-sm-12">
+                    <a href="{% url 'travel_buddy:logout' %}">Log Out</a>
+                    <h4>Hello, {{ request.session.user.first_name }}!</h4>
+                </div>
+            </div>
+            <header>
+                <h2>Welcome to Travel Buddy!<h2>
+            </header>
+            <div class="row">
+                <div class="col-sm-8">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <h5>{{ message }}</h5>
+                        {% endfor %}
+                    {% endif %}
+
+                    <table class="table table-striped">
+                        <h3>Your Trips</h3>
+                        <tr>
+                            <th>Destination</th>
+                            <th>Departure Date</th>
+                            <th>Return Date</th>
+                            <th>Plan</th>
+                        </tr>
+                        {% for trip in user_trips %}
+                        <tr>
+                            <td><a href="/travel_buddy/travels/destination/{{ trip.destination.id }}">{{ trip.destination.destination }}</a></td>
+                            <td>{{ trip.departure_date }}</td>
+                            <td>{{ trip.return_date }}</td>
+                            <td>{{ trip.description }}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    <table class="table table-striped">
+                        <h3>Other Users' Trips</h3>
+                        <tr>
+                            <th>Planner</th>
+                            <th>Destination</th>
+                            <th>Departure Date</th>
+                            <th>Return Date</th>
+                            <th>Join?</th>
+                        </tr>
+                        {% for trip in all_trips %}
+                        <tr>
+                            <td>{{ trip.planner.first_name }} {{ trip.planner.last_name }}</td>
+                            <td><a href="/travel_buddy/travels/destination/{{ trip.destination.id }}">{{ trip.destination.destination }}</a></td>
+                            <td>{{ trip.departure_date }}</td>
+                            <td>{{ trip.return_date }}</td>
+                            <td><a href="/travel_buddy/travels/join/{{ trip.id }}">Join</a></td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    <h4><a href="{% url 'travel_buddy:addtrip' %}">Add a new trip</a></h4>
+                </div>
+            </div>
+        </div>
+        <footer>
+            COPYRIGHT 2018 - <a href="/">RETURN TO EVANREYES.CO</a>
+        </footer>
+    </body>
+</html>

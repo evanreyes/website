@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Evan Reyes</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        {% load static %}
+        <link rel="icon" href="{% static 'home/img/icons/favicon.ico' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'home/css/style.css' %}">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+        crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+    </head>
+    <body>
+        <header>
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-3 topbar">
+                    <h1 class="pull-left">EVAN REYES</h1>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="row">
+                <nav class="col-xs-2">
+                    <ul>
+                        <li><a href="/home">HOME</a></li>
+                        <li><a href="/about_me">ABOUT ME</a></li>
+                        <li><a href="/projects">PROJECTS</a></li>
+                    </ul>
+                    <ul class="externals">
+                        <li><a href="https://www.linkedin.com/in/evan-reyes-619a4235/" target="_blank"><img class="icon" src="{% static 'home/img/icons/linkedin.png' %}" alt=""></a></li>
+                        <li><a href="https://github.com/evanreyes" target="_blank"><img class="icon" src="{% static 'home/img/icons/github.png' %}" alt=""></a></li>
+                        <li><a href="https://twitter.com/evanmreyes" target="_blank"><img class="icon" src="{% static 'home/img/icons/twitter.png' %}" alt=""></a></li>
+                        <li><a href="https://www.dropbox.com/s/qmf5ejte4a9xdu9/Evan%20Reyes%20resume.pdf?dl=0" target="_blank"><img class="icon" src="{% static 'home/img/icons/doc.png' %}" alt=""></a></li>
+                    </ul>
+                </nav>
+                <section class="col-xs-10">
+                    <div class="bodyphoto col-sm-3 hidden-sm-down">
+                        <img src="{% static 'home/img/bike.jpg' %}" alt=""><br><br>
+                        <span>Cycling: one of <br> my biggest passions</span><br><br>
+                    </div>
+                    <div class="col-xs-9">
+                        <p>I grew up in Bellingham, Washington, and over the course of my 32 years have loved living in the Pacific Northwest. In the past I have worked in IT, and while I love the challenge of solving technical problems for end users, I gradually built a desire to be on the other end: creating the apps and products that everyone uses and loves. So in April 2017, I enrlled at Coding Dojo and started learning web development.</p>
+                        <p>Outside of career ambitions, I have a passion for spending time with my partner Lauren, our cat Jacques, cycling, craft beer, and sports (Go Cougs! Go Mariners!). During the summer I've put in a few 500-mile biking months, and finished an "Everest" in the month of August (climbing the total height of Mt. Everest, 28,000ft). My beer cellar at this point has grown to over 200 bottles. My wallet and my liver are both probably not too happy about that.</p>
+                        <p>So, what do I want to do? I want to be a web developer for an awesome company. I want to learn and grow alongside awesome people who are passionate about creating amazing software and helping newcomers to the field explore their passions. I want to help build the next great apps and knock them out of the park to make a compelling user experience. I'm ready to start my next chapter.</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer>Copyright 2018 - Evan Reyes</footer>
+    </body>
+</html>

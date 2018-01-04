@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Book Reviews</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- Custom stylesheet -->
+        {% load staticfiles %}
+        <link rel="icon" href="{% static 'home/img/icons/favicon.ico' %}">
+        <link rel="stylesheet" type="text/css" href="{% static "/book_review/css/style.css" %}">
+    </head>
+    <body>
+        <div class="review_list">
+            <div class="row">
+                <div class="col-sm-12">
+                    <a href="{% url 'book_review:newbook' %}">Add Book and Review</a> |
+                    <a href="{% url 'book_review:logout' %}">Log Out</a>
+                    <h4>Welcome, {{ request.session.user.first_name }}!</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-7">
+                    <h3>Recent book reviews</h3>
+
+                    {% for review in reviews %}
+                    <div class="col-sm-12 book_review review_page">
+                        <a href="/book_review/books/{{review.book.id}}"><h3>{{review.book.title}}</h3></a>
+                        <h5>{{review.book.author.name}}</h5>
+
+                        <p><img src="../../static/book_review/img/{{ review.rating }}.png"></p>
+                        <p><a href="users/{{review.user.id}}">{{ review.user.first_name }}</a> said: {{ review.review }}</p>
+                        <h6>Reviewed on {{review.created_at}}</h6>
+                        {% if request.session.user.id == review.user.id %}
+                        <a href="{% url 'book_review:deletereview' review.id %}">Delete this review</a></p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="col-sm-4 col-sm-offset-1 review_page">
+                    <h3>All books with reviews</h3>
+                    {% for book in books %}
+                    <ul><a href="/book_review/books/{{book.id}}">{{ book.title }}</a></ul>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <footer>
+            COPYRIGHT 2018 - <a href="/">RETURN TO EVANREYES.CO</a>
+        </footer>
+    </body>
+</html>

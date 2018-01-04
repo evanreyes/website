@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Evan Reyes</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        {% load static %}
+        <link rel="icon" href="{% static 'home/img/icons/favicon.ico' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'home/css/style.css' %}">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+        crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+    </head>
+    <body>
+        <header>
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-3 topbar">
+                    <h1 class="pull-left">EVAN REYES</h1>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="row">
+                <nav class="col-xs-2">
+                    <ul>
+                        <li><a href="/home">HOME</a></li>
+                        <li><a href="/about_me">ABOUT ME</a></li>
+                        <li><a href="/projects">PROJECTS</a></li>
+                    </ul>
+                    <ul class="externals">
+                        <li><a href="https://www.linkedin.com/in/evan-reyes-619a4235/" target="_blank"><img class="icon" src="{% static 'home/img/icons/linkedin.png' %}" alt=""></a></li>
+                        <li><a href="https://github.com/evanreyes" target="_blank"><img class="icon" src="{% static 'home/img/icons/github.png' %}" alt=""></a></li>
+                        <li><a href="https://twitter.com/evanmreyes" target="_blank"><img class="icon" src="{% static 'home/img/icons/twitter.png' %}" alt=""></a></li>
+                        <li><a href="https://www.dropbox.com/s/qmf5ejte4a9xdu9/Evan%20Reyes%20resume.pdf?dl=0" target="_blank"><img class="icon" src="{% static 'home/img/icons/doc.png' %}" alt=""></a></li>
+                    </ul>
+                </nav>
+                <section class="col-xs-10">
+
+                    <div class="col-xs-9 col-xs-offset-1">
+                        <p>
+                            Here are two projects I worked on at Coding Dojo. They are Django-based apps that highlight my database work and showcase one-to-one, one-to-many, and many-to-many data relationships. These apps feature a login and registration component that performs checks on user input and rejects login or registration if certain validations are not met.<br><br>
+                            These apps are quite basic visually, with minimal CSS applied, but do use Bootstrap for their structure. Go ahead and test them out by registering your credentials (a valid email address is not necessary) and playing around with the different forms and pages. Also check out <a href="">my Github</a> to see the underlying code. Both apps utilize session variables to determine the currently logged-in user, and make database queries and calls based on that information. Templates update according to who is logged in. You can check out these apps' <a href="https://github.com/evanreyes/portfolio/apps">source code on Github</a>.
+                        </p><br><br>
+                        <p>
+                            <a href="/travel_buddy"><img src="{% static 'home/img/travel_buddy.jpg' %}" class="thumb"><a><br>
+                            <a href="/travel_buddy">TRAVEL BUDDY</a><br><br>
+                            Travel Buddy features login and registration, and allows users to book "travel itineraries" for future dates. Users can "join" other users' trips to create lists of individuals who are traveling together.
+                        </p><br>
+                        <p>
+                            <a href="/book_review"><img src="{% static 'home/img/book_reviews.jpg' %}" class="thumb"><a><br>
+                            <a href="/book_review">BOOK REVIEWS</a><br><br>
+                            Book Reviews uses a login and registration component, and allows logged-in users to postbook reviews with ratings. My app does not allow for duplicate authors if a user has already added them to the database. Through the various templates, you can see a user's reviews, an author's books, and more.
+                        </p>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer>Copyright 2018 - Evan Reyes</footer>
+    </body>
+</html>
